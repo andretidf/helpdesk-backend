@@ -1,13 +1,20 @@
 package com.reisdigital.helpdesk;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+
+import javax.persistence.Entity;
+import javax.persistence.OneToMany;
 
 import com.reisdigital.helpdesk.domain.Chamado;
 import com.reisdigital.helpdesk.domain.Pessoa;
 
-public class Tecnico extends Pessoa{
+@Entity
+public class Tecnico extends Pessoa implements Serializable{
+	private static final long serialVersionUID = 1L;
 	
+	@OneToMany(mappedBy = "tecnico")
 	private List<Chamado> chamados = new ArrayList<>();
 
 	public Tecnico() {
