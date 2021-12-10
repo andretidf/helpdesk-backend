@@ -9,6 +9,7 @@ import javax.persistence.OneToMany;
 
 import com.reisdigital.helpdesk.domain.Chamado;
 import com.reisdigital.helpdesk.domain.Pessoa;
+import com.reisdigital.helpdesk.domain.enums.Perfil;
 
 @Entity
 public class Tecnico extends Pessoa implements Serializable{
@@ -19,10 +20,12 @@ public class Tecnico extends Pessoa implements Serializable{
 
 	public Tecnico() {
 		super();
+		addPerfil(Perfil.TECNICO);
 	}
 
 	public Tecnico(Integer id, String nome, String cpf, String email, String senha) {
 		super(id, nome, cpf, email, senha);
+		addPerfil(Perfil.TECNICO);
 	}
 
 	public List<Chamado> getChamados() {
