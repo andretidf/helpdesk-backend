@@ -5,9 +5,9 @@ import java.util.Arrays;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.reisdigital.helpdesk.Tecnico;
 import com.reisdigital.helpdesk.domain.Chamado;
 import com.reisdigital.helpdesk.domain.Cliente;
+import com.reisdigital.helpdesk.domain.Tecnico;
 import com.reisdigital.helpdesk.domain.enums.Perfil;
 import com.reisdigital.helpdesk.domain.enums.Prioridade;
 import com.reisdigital.helpdesk.domain.enums.Status;

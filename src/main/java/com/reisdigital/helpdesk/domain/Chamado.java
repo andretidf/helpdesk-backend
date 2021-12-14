@@ -12,7 +12,6 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import com.reisdigital.helpdesk.Tecnico;
 import com.reisdigital.helpdesk.domain.enums.Prioridade;
 import com.reisdigital.helpdesk.domain.enums.Status;
 
