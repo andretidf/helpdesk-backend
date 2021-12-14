@@ -11,21 +11,21 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.reisdigital.helpdesk.domain.enums.Perfil;
 
 @Entity
-public class Cliente extends Pessoa implements Serializable{
+public class Tecnico extends Pessoa implements Serializable{
 	private static final long serialVersionUID = 1L;
-
+	
 	@JsonIgnore
-	@OneToMany(mappedBy = "cliente")
+	@OneToMany(mappedBy = "tecnico")
 	private List<Chamado> chamados = new ArrayList<>();
 
-	public Cliente() {
+	public Tecnico() {
 		super();
-		addPerfil(Perfil.CLIENTE);
+		addPerfil(Perfil.TECNICO);
 	}
 
-	public Cliente(Integer id, String nome, String cpf, String email, String senha) {
+	public Tecnico(Integer id, String nome, String cpf, String email, String senha) {
 		super(id, nome, cpf, email, senha);
-		addPerfil(Perfil.CLIENTE);
+		addPerfil(Perfil.TECNICO);
 	}
 
 	public List<Chamado> getChamados() {
@@ -37,4 +37,6 @@ public class Cliente extends Pessoa implements Serializable{
 	}
 	
 	
+	
+
 }
