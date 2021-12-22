@@ -3,9 +3,10 @@ package com.reisdigital.helpdesk.domain.dtos;
 import java.io.Serializable;
 import java.time.LocalDate;
 
+import javax.validation.constraints.NotNull;
+
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.reisdigital.helpdesk.domain.Chamado;
-import com.reisdigital.helpdesk.domain.enums.Status;
 
 public class ChamadoDTO implements Serializable{
 	private static final long serialVersionUID = 1L;
@@ -16,11 +17,17 @@ public class ChamadoDTO implements Serializable{
 	private LocalDate dataAbertura = LocalDate.now();
 	@JsonFormat(pattern = "dd/MM/yyyy")
 	private LocalDate dataFechamento;
+	@NotNull(message = "o campo PRIORIDADE é requerido")
 	private Integer prioridade;
-	private Status status;
+	@NotNull(message = "o campo STATUS é requerido")
+	private Integer status;
+	@NotNull(message = "o campo TITULO é requerido")
 	private String titulo;
+	@NotNull(message = "o campo OBSERVAÇÕES é requerido")
 	private String observacoes;
+	@NotNull(message = "o campo TÉCNICO é requerido")
 	private Integer tecnico;
+	@NotNull(message = "o campo CLIENTE é requerido")
 	private Integer cliente;
 	private String nomeTecnico;
 	private String nomeCliente;
@@ -35,7 +42,7 @@ public class ChamadoDTO implements Serializable{
 		this.dataAbertura = obj.getDataAbertura();
 		this.dataFechamento = obj.getDataFechamento();
 		this.prioridade = obj.getPrioridade().getCodigo();
-		this.status = obj.getStatus();
+		this.status = obj.getStatus().getCodigo();
 		this.titulo = obj.getTitulo();
 		this.observacoes = obj.getObservacoes();
 		this.tecnico = obj.getTecnico().getId();
@@ -76,11 +83,11 @@ public class ChamadoDTO implements Serializable{
 		this.prioridade = prioridade;
 	}
 
-	public Status getStatus() {
+	public Integer getStatus() {
 		return status;
 	}
 
-	public void setStatus(Status status) {
+	public void setStatus(Integer status) {
 		this.status = status;
 	}
 
